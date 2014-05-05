@@ -1,24 +1,27 @@
 ArduinoDES
 ==========
 
-DES and Triples DES encryption and decryption library for the Arduino microcontroller platform.
-This code was ported from the AVR-Crypto-Lib (http://www.das-labor.org/wiki/AVR-Crypto-Lib).
+DES, TripleDES, NonupleDES encryption/decryption library for the Arduino microcontroller platform.
+cloned from 'Octoate' orignal DES & 3DES:  https://github.com/Octoate/ArduinoDES
+His code was ported from the AVR-Crypto-Lib (http://www.das-labor.org/wiki/AVR-Crypto-Lib).
 
 To install the library, download and copy the files into a subfolder (e.g. "DES") in the 
 "libraries" folder of your Arduino development environment.
 
-The library was tested on an Arduino Leonardo.
+The library was tested on a:   ...
 
 
 Usage
 =====
 
-It is possible to encrypt and decrypt messages with the DES or Triples DES crypto algorithms.
+It is possible to encrypt and decrypt messages with the DES, 3DES & 9DES crypto algorithms.
 Have a look at the example code for more information.
 
 
 License
 =======
+
+9DES added by ian918m 2014.  -- happy Cinqo de Mayo.
 
 Library for DES and 3DES encryption and decryption
 Ported to the Arduino platform 2013 by Tim Riemann

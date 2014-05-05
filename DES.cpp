@@ -359,6 +359,7 @@ void DES::tripleDecrypt(void* out, void* in, const uint8_t* key){
 }
 
 /******************************************************************************/
+/******************************************************************************/
 
 void DES::nonupleEncrypt(void* out, void* in, const void* key){
         tripleEncrypt(out,  in, (uint8_t*)key + 0);
@@ -374,5 +375,23 @@ void DES::nonupleDecrypt(void* out, void* in, const uint8_t* key){
         tripleDecrypt(out, out, (uint8_t*)key + 0);
 }
 
+/******************************************************************************/
+/******************************************************************************/
+
+void DES::septenvigupleEncrypt(void* out, void* in, const void* key){
+        nonupleEncrypt(out,  in, (uint8_t*)key +  0);
+        nonupleDecrypt(out, out, (uint8_t*)key + 72);
+        nonupleEncrypt(out, out, (uint8_t*)key +144);
+}
+
+/******************************************************************************/
+
+void DES::septenvigupleDecrypt(void* out, void* in, const uint8_t* key){
+        nonupleDecrypt(out,  in, (uint8_t*)key +144);
+        nonupleEncrypt(out, out, (uint8_t*)key + 72);
+        nonupleDecrypt(out, out, (uint8_t*)key +  0);
+}
+
+/******************************************************************************/
 /******************************************************************************/
 

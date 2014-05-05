@@ -109,7 +109,7 @@ class DES
 
 
                 /** \fn void nonupleEncrypt(void* out, const void* in, const void* key)
-                * \brief encrypt a block with Nonuple-DES
+                * \brief encrypt a block with Nonuple-DES  (9-DES)
                 *
                 * This function encrypts a block of 64 bits (8 bytes) with the Nonuple-DES (EDE-3DES)
                 * algorithm. Key expansion is done automatically. The key is 576 bits long, but
@@ -135,6 +135,37 @@ class DES
                 * \param key pointer to the key (576 bit = 72 byte)
                 */
                 void nonupleDecrypt(void* out, void* in, const uint8_t* key);
+
+
+
+                /** \fn void septenvigupleEncrypt(void* out, const void* in, const void* key)
+                * \brief encrypt a block with Septenviguple-DES  (27-DES)
+                *
+                * This function encrypts a block of 64 bits (8 bytes) with the Septenviguple-DES (EDE-9DES)
+                * algorithm. Key expansion is done automatically. The key is 1728 bits long, but
+                * note that only 1512 bits are used (the LSB of each byte is dropped). The input
+                * and output blocks may overlap.
+                *
+                * \param out pointer to the block (64 bit = 8 byte) where the ciphertext is written to
+                * \param in  pointer to the block (64 bit = 8 byte) where the plaintext is read from
+                * \param key pointer to the key (1728 bit = 216 byte)
+                */
+                void septenvigupleEncrypt(void* out, void* in, const void* key);
+
+                /** \fn void septenvigupleDecrypt(void* out, const void* in, const void* key)
+                * \brief decrypt a block with Septenviguple-DES
+                *
+                * This function decrypts a block of 64 bits (8 bytes) with the Septenviguple-DES (EDE-9DES)
+                * algorithm. Key expansion is done automatically. The key is 1728 bits long, but
+                * note that only 1512 bits are used (the LSB of each byte is dropped). The input
+                * and output blocks may overlap.
+                *
+                * \param out pointer to the block (64 bit = 8 byte) where the plaintext is written to
+                * \param in  pointer to the block (64 bit = 8 byte) where the ciphertext is read from
+                * \param key pointer to the key (1728 bit = 216 byte)
+                */
+                void septenvigupleDecrypt(void* out, void* in, const uint8_t* key);
+
 
 
 		

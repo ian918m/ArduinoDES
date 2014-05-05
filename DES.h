@@ -77,12 +77,13 @@ class DES
 		*/
 		void decrypt(void* out, const void* in, const uint8_t* key);
 		
+
 		/** \fn void tripleEncrypt(void* out, const void* in, const void* key)
-		* \brief encrypt a block with Tripple-DES
+		* \brief encrypt a block with Triple-DES
 		* 
-		* This function encrypts a block of 64 bits (8 bytes) with the Tripple-DES (EDE)
+		* This function encrypts a block of 64 bits (8 bytes) with the Triple-DES (EDE-DES)
 		* algorithm. Key expansion is done automatically. The key is 192 bits long, but
-		* note that only 178 bits are used (the LSB of each byte is dropped). The input
+		* note that only 168 bits are used (the LSB of each byte is dropped). The input
 		* and output blocks may overlap.
 		* 
 		* \param out pointer to the block (64 bit = 8 byte) where the ciphertext is written to
@@ -92,11 +93,11 @@ class DES
 		void tripleEncrypt(void* out, void* in, const void* key);
 
 		/** \fn void tripleDecrypt(void* out, const void* in, const void* key)
-		* \brief decrypt a block with Tripple-DES
+		* \brief decrypt a block with Triple-DES
 		* 
-		* This function decrypts a block of 64 bits (8 bytes) with the Tripple-DES (EDE)
+		* This function decrypts a block of 64 bits (8 bytes) with the Triple-DES (EDE-DES)
 		* algorithm. Key expansion is done automatically. The key is 192 bits long, but
-		* note that only 178 bits are used (the LSB of each byte is dropped). The input
+		* note that only 168 bits are used (the LSB of each byte is dropped). The input
 		* and output blocks may overlap.
 		* 
 		* \param out pointer to the block (64 bit = 8 byte) where the plaintext is written to
@@ -104,6 +105,38 @@ class DES
 		* \param key pointer to the key (192 bit = 24 byte)
 		*/
 		void tripleDecrypt(void* out, void* in, const uint8_t* key);
+
+
+
+                /** \fn void nonupleEncrypt(void* out, const void* in, const void* key)
+                * \brief encrypt a block with Nonuple-DES
+                *
+                * This function encrypts a block of 64 bits (8 bytes) with the Nonuple-DES (EDE-3DES)
+                * algorithm. Key expansion is done automatically. The key is 576 bits long, but
+                * note that only 504 bits are used (the LSB of each byte is dropped). The input
+                * and output blocks may overlap.
+                *
+                * \param out pointer to the block (64 bit = 8 byte) where the ciphertext is written to
+                * \param in  pointer to the block (64 bit = 8 byte) where the plaintext is read from
+                * \param key pointer to the key (576 bit = 72 byte)
+                */
+                void nonupleEncrypt(void* out, void* in, const void* key);
+
+                /** \fn void nonupleDecrypt(void* out, const void* in, const void* key)
+                * \brief decrypt a block with Nonuple-DES
+                *
+                * This function decrypts a block of 64 bits (8 bytes) with the Nonuple-DES (EDE-3DES)
+                * algorithm. Key expansion is done automatically. The key is 576 bits long, but
+                * note that only 504 bits are used (the LSB of each byte is dropped). The input
+                * and output blocks may overlap.
+                *
+                * \param out pointer to the block (64 bit = 8 byte) where the plaintext is written to
+                * \param in  pointer to the block (64 bit = 8 byte) where the ciphertext is read from
+                * \param key pointer to the key (576 bit = 72 byte)
+                */
+                void nonupleDecrypt(void* out, void* in, const uint8_t* key);
+
+
 		
 	private:
 		void permute(const uint8_t *ptable, const uint8_t *in, uint8_t *out);

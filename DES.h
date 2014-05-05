@@ -167,8 +167,37 @@ class DES
                 void septenvigupleDecrypt(void* out, void* in, const uint8_t* key);
 
 
+	
+                /** \fn void unoctogupleEncrypt(void* out, const void* in, const void* key)
+                * \brief encrypt a block with Unoctoguple-DES  (81-DES)
+                *
+                * This function encrypts a block of 64 bits (8 bytes) with the Unoctoguple-DES (EDE-27DES)
+                * algorithm. Key expansion is done automatically. The key is 5184 bits long, but
+                * note that only 4536 bits are used (the LSB of each byte is dropped). The input
+                * and output blocks may overlap.
+                *
+                * \param out pointer to the block (64 bit = 8 byte) where the ciphertext is written to
+                * \param in  pointer to the block (64 bit = 8 byte) where the plaintext is read from
+                * \param key pointer to the key (5184 bit = 648 byte)
+                */
+                void unoctogupleEncrypt(void* out, void* in, const void* key);
 
-		
+                /** \fn void unoctogupleDecrypt(void* out, const void* in, const void* key)
+                * \brief decrypt a block with Unoctoguple-DES
+                *
+                * This function decrypts a block of 64 bits (8 bytes) with the Unoctoguple-DES (EDE-27DES)
+                * algorithm. Key expansion is done automatically. The key is 5184 bits long, but
+                * note that only 4536 bits are used (the LSB of each byte is dropped). The input
+                * and output blocks may overlap.
+                *
+                * \param out pointer to the block (64 bit = 8 byte) where the plaintext is written to
+                * \param in  pointer to the block (64 bit = 8 byte) where the ciphertext is read from
+                * \param key pointer to the key (5184 bit = 648 byte)
+                */
+                void unoctogupleDecrypt(void* out, void* in, const uint8_t* key);
+
+
+	
 	private:
 		void permute(const uint8_t *ptable, const uint8_t *in, uint8_t *out);
 		void changeendian32(uint32_t * a);

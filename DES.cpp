@@ -394,4 +394,23 @@ void DES::septenvigupleDecrypt(void* out, void* in, const uint8_t* key){
 
 /******************************************************************************/
 /******************************************************************************/
+/******************************************************************************/
+
+void DES::unoctogupleEncrypt(void* out, void* in, const void* key){
+        septenvigupleEncrypt(out,  in, (uint8_t*)key +  0);
+        septenvigupleDecrypt(out, out, (uint8_t*)key +216);
+        septenvigupleEncrypt(out, out, (uint8_t*)key +432);
+}
+
+/******************************************************************************/
+
+void DES::unoctogupleDecrypt(void* out, void* in, const uint8_t* key){
+        septenvigupleDecrypt(out,  in, (uint8_t*)key +432);
+        septenvigupleEncrypt(out, out, (uint8_t*)key +216);
+        septenvigupleDecrypt(out, out, (uint8_t*)key +  0);
+}
+
+/******************************************************************************/
+/******************************************************************************/
+/******************************************************************************/
 
